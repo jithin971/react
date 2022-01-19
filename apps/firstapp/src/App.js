@@ -9,40 +9,31 @@ import PropValidation from './components/propValidate/propvalidate';
 import StateEx from './states/stateex/stateEx';
 import StudentStateEx from './states/student';
 import AppHooks from './states/hooksEx';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Error from './error/error';
+import Header from './header/header';
+import Footer from './footer/footer';
+import Company from './components/company/company';
+import Members from './components/members/members';
+import User from './components/user/user';
 
 function App() {
-  let isTable = true
-  let age=20
-  // let number=20
-  let cars=[
-    {
-      model:"ford",
-      color:"red",
-      noOfGear:1
-    },
-    {
-      model:"tata",
-      color:"blue",
-      noOfGear:2
-    },
-    {
-      model:"JCB",
-      color:"blue",
-      noOfGear:3
-    }
-  ]
 
-  let arr=[5,6,7]
-  return <div className="App" >
-    {/* <Student tableFlag={isTable} name="JIthin" age={age}/>
-    <Prime number={1}/> */}
-    {/* <Car cars={cars}/> */}
-    {/* <PropValidation name="Rahul" numArray={arr}/> */}
-    {/* <StateEx/> */}
-    {/* <StudentStateEx/> */}
-    <AppHooks/>
-  </div>
-    ;
+  return (
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} >
+          <Route index element={<Company/>} />
+          <Route  path="members" element={<Members/>} />
+          <Route  path="user" element={<User/>} />
+        </Route>
+        <Route path="*" element={<Error />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
+  )
 }
 
 export default App;
