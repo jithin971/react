@@ -6,9 +6,9 @@ const About = () => {
     return (
         <>
             <ul>
-                <li><NavLink activeClassName="active" to="/about">Company</NavLink></li>
-                <li><NavLink activeClassName="active" to="members">Members</NavLink></li>
-                <li><NavLink activeClassName="active" to="user">User</NavLink></li>
+                <li><NavLink className="nonactive" activeclassname="active"  to="/about/">Company</NavLink></li>
+                <li><NavLink className="nonactive" activeclassname="active" to="members">Members</NavLink></li>
+                <li><NavLink className={({ isActive }) => isActive ? "red" : "blue"}  to="user/jituhin">User</NavLink></li>
             </ul>
             <Outlet />
         </>

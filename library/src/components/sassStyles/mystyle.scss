@@ -1,0 +1,15 @@
+
+@import './color.scss';
+
+.mydiv{
+color: $divColor;    
+}
+
+@mixin defalt-style {
+    padding: 10px;
+    font-size: 16px;
+}
+
+p{
+    @include defalt-style
+}
