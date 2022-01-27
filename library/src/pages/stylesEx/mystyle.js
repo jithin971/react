@@ -27,10 +27,10 @@ ul{
 
     list-style:none;
     padding:0px 20px;
-    background-color:#fff;
+    background-color:${props=>props.theme.bgcolor};
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
-    border-top:3px solid ${accrnt};
+    border-top:3px solid ${props=>props.theme.border};
     li{
         padding :10px 0;
         border-top:1px solid gray;
