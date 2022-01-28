@@ -1,0 +1,50 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "jithin",
+      "author": "react",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "todos": [
+    {
+      "title": "sample updated",
+      "completed": false,
+      "userid": 0,
+      "id": 0
+    },
+    {
+      "userid": "1",
+      "title": "visit mysore",
+      "completed": false,
+      "id": 1
+    },
+    {
+      "userid": "2",
+      "title": "visit bANGLORE",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "userid": "5",
+      "title": "VISIT KANNUR",
+      "completed": false,
+      "id": 3
+    }
+  ]
+}
