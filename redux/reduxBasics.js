@@ -6,7 +6,7 @@ const ADD = "ADD"
 const SUB = "SUB"
 //Action
 //counter
-const incFun = (value) => {
+const incFun = (value=0) => {
     return {
         type: INC,
         payload: value
@@ -53,7 +53,7 @@ const reducerfn = (state = 0, action) => {
         case DEC:
             return state - action.payload
         default:
-            state
+           return state
 
     }
 }
@@ -83,7 +83,7 @@ const reducerCalculator2 = (state = 10, action) => {
 
 const rootReducer=redux.combineReducers({
     calculator:reducerCalculator,
-    calculator2:reducerCalculator2
+    reducerfn:reducerfn
 
 })
 
@@ -95,8 +95,8 @@ const sub = store.subscribe(() => {
     console.log(store.getState())
 })
 
-// store.dispatch(incFun(3))
-// store.dispatch(incFun())
+store.dispatch(incFun(3))
+store.dispatch(incFun())
 // store.dispatch(incFun())
 // store.dispatch(decFun())
 // store.dispatch(decFun())
@@ -114,5 +114,3 @@ const sub = store.subscribe(() => {
 // dec()
 
 store.dispatch(addFun(5,5))
-
-store.dispatch(subFun(5,1))
