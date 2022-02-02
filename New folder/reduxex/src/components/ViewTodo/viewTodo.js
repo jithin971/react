@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { toggleToDo } from "../../redux/action/todo.action";
 
 const Viewtodo = () => {
-    const todo = useSelector((state) => state)
+    const todo = useSelector((state) => state.todo)
     const dispatch = useDispatch();
     const completed = (id) => {
         dispatch(toggleToDo(id))
