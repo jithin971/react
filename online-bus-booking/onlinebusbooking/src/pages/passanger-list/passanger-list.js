@@ -11,7 +11,10 @@ const PassangerList=()=>{
 
     const handleComplete = () => {
         let userID = user?.loggedUser?.id
-        dispatch(addTicket({userId: 0, busId: userID, seatId: 'A1', name: "Abin", age: 30, status: "booked" }));
+        booking.selectedSeats.map(res=>{
+            dispatch(addTicket({userId: userID, busId: res.busId, seatId: res.seatID, name: "Abin", age: 30, status: "booked" }));
+        })
+
         navigate('/payment-success')
     };
 

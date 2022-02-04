@@ -19,15 +19,9 @@ const Header = () => {
                 <li>
                     <Link to="/viewbus">viewbus</Link>
                 </li>
-                {/* <li>
-                    <Link to="/passengerlist">passengerlist</Link>
-                </li>
                 <li>
-                    <Link to="/payment-success">payment</Link>
+                   <Link to="/cancel-booking">cancelTicket</Link>
                 </li>
-                <li>
-                    <Link to="/cancel-booking">cancel</Link>
-                </li> */}
 
             </ul></div>
             <Outlet />
