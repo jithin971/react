@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom";
-import { addTicket } from "../../redux/action/booking.action";
+import { addTicket, selectedSeats } from "../../redux/action/booking.action";
 
 const PassangerList=()=>{
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const PassangerList=()=>{
         booking.selectedSeats.map(res=>{
             dispatch(addTicket({userId: userID, busId: res.busId, seatId: res.seatID, name: "Abin", age: 30, status: "booked" }));
         })
-
+        dispatch(selectedSeats([]));
         navigate('/payment-success')
     };
 
