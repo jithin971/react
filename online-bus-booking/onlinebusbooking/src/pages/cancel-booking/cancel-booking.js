@@ -9,23 +9,25 @@ const CancelBooking = () => {
     const dispatch = useDispatch()
     const [myTicket, setMyTicket] = useState([])
     useEffect(() => {
-        setMyTicket(booking.ticket.filter(res => res.userId === user.loggedUser.id))
+        setMyTicket(booking.ticket.filter(res => res.userId === user.loggedUser.userId))
     }, [booking.ticket])
 
-    const cancelBooking=(busId, seatID,ticketId)=>{
-        let userID =user?.loggedUser?.id
-        dispatch(seatBooking({ busId, seatID, userID:"" }));
+    const onCancelTicket = (busId, seatID, ticketId) => {
+        let userID = user?.loggedUser?.userId
+        dispatch(seatBooking({ busId, seatID, userID: "" }));
         debugger
         dispatch(cancelTicket(ticketId));
     }
     return (
-        <div>{
-            myTicket.map(res => (
-                <div>
-                    {res.busId}={res.seatId}-<button onClick={()=>{cancelBooking(res.busId,res.seatId,res.ticketId)}}>Cancel</button>
-                </div>
-            ))
-        }</div>
+        <div>
+            {
+
+                myTicket.map(res => (
+                    <div>
+                        {res.busId}={res.seatId}-<button onClick={() => { onCancelTicket(res.busId, res.seatId, res.ticketId) }}>Cancel</button>
+                    </div>
+                ))
+            }</div>
     )
 }
 

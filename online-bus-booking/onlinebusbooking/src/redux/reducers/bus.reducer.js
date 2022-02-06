@@ -10,7 +10,8 @@ export const busReduser = (state = [], action) => {
         case SEAT_BOOKING:
            return state.map((bus) => {
             return bus.busId === payload.busId?{...bus,seat: bus.seat.map(seat=>{
-                 return  seat.no===payload.seatID?{...seat,userId:payload.userID}:seat
+debugger
+                 return  seat.no===payload.seatID?{...seat,userId:payload.userID.toString()}:seat
                 })}
                 :bus
         })

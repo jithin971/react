@@ -13,20 +13,20 @@ const ViewBus = () => {
     const [bookedSeats, setbookedSeats] = useState([])
 
     const selectSeat = (busId, seatID, bookingId) => {
-        let userID = bookingId.toString() ? "" : user?.loggedUser?.id
+        let userID = bookingId.toString() ? "" : user?.loggedUser?.userId.toString()
         dispatch(seatBooking({ busId, seatID, userID }));
-       if(bookingId.toString()){
-          let index=bookedSeats.findIndex(dta=>dta.busId==busId&& dta.seatID==seatID)
-        setbookedSeats([
-            ...bookedSeats.slice(0, index),
-            ...bookedSeats.slice(index + 1)
-          ]);
-        
+        if (bookingId.toString()) {
+            let index = bookedSeats.findIndex(dta => dta.busId == busId && dta.seatID == seatID)
+            setbookedSeats([
+                ...bookedSeats.slice(0, index),
+                ...bookedSeats.slice(index + 1)
+            ]);
 
-       }else{
-       
-        setbookedSeats([...bookedSeats, {busId,seatID}])
-       }
+
+        } else {
+
+            setbookedSeats([...bookedSeats, { busId, seatID }])
+        }
 
     }
 
@@ -34,9 +34,9 @@ const ViewBus = () => {
         dispatch(selectedSeats(bookedSeats));
         navigate('/passengerlist')
     }
-    useEffect(()=>{
+    useEffect(() => {
         setbookedSeats(booking.selectedSeats)
-    },[])
+    }, [])
     return (
         <>
             <div>{JSON.stringify(user.loggedUser)}</div>
@@ -52,7 +52,7 @@ const ViewBus = () => {
                         <ul>
                             {
                                 res.seat.map(result => (
-                                    <li>  <button onClick={() => { selectSeat(res.busId, result.no, result.userId) }}>{result.no}</button></li>
+                                    <li>{(result.userId!==""&&(user.loggedUser.userId!=result.userId)).toString()} <button disabled={(result.userId!=="")} onClick={() => { selectSeat(res.busId, result.no, result.userId.toString()) }}>{result.no}</button></li>
                                 ))
                             }
                         </ul>
