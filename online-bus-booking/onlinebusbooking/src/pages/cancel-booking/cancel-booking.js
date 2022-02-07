@@ -15,7 +15,6 @@ const CancelBooking = () => {
     const onCancelTicket = (busId, seatID, ticketId) => {
         let userID = user?.loggedUser?.userId
         dispatch(seatBooking({ busId, seatID, userID: "" }));
-        debugger
         dispatch(cancelTicket(ticketId));
     }
     return (
@@ -24,7 +23,7 @@ const CancelBooking = () => {
 
                 myTicket.map(res => (
                     <div>
-                        {res.busId}={res.seatId}-<button onClick={() => { onCancelTicket(res.busId, res.seatId, res.ticketId) }}>Cancel</button>
+                      {res.name} -- {res.busId}={res.seatId}-<button onClick={() => { onCancelTicket(res.busId, res.seatId, res.ticketId) }}>Cancel</button>
                     </div>
                 ))
             }</div>

@@ -6,10 +6,12 @@ const Login = () => {
     const { user } = useSelector((state) => state)
     const dispatch = useDispatch()
     const [loginData, setLogin] = useState({
-        userName: "ADMIN",
-        password: "ADMIN"
+        userName: "",
+        password: ""
     })
-
+    const setData=(e)=>{
+        setLogin({...loginData,[e.target.name]:e.target.value})
+    }
     const ValidateUser = () => {
         let loggedUser = user.users.filter(res => res.userName === loginData.userName && res.password === loginData.password);
         console.log(loggedUser)
@@ -20,7 +22,9 @@ const Login = () => {
     }
     return (
         <div>Login
-            {JSON.stringify(user)}
+            {JSON.stringify(user)}<br/>
+           User Name: <input name="userName" onChange={setData} /><br/>
+           Password : <input name="password" onChange={setData} /><br/>
             <button onClick={ValidateUser}>Login</button>
         </div>
     )

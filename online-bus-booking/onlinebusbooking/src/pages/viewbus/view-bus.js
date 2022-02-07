@@ -52,7 +52,7 @@ const ViewBus = () => {
                         <ul>
                             {
                                 res.seat.map(result => (
-                                    <li>{(result.userId!==""&&(user.loggedUser.userId!=result.userId)).toString()} <button disabled={(result.userId!=="")} onClick={() => { selectSeat(res.busId, result.no, result.userId.toString()) }}>{result.no}</button></li>
+                                    <li> <button disabled={(result.userId!=="")} onClick={() => { selectSeat(res.busId, result.no, result.userId.toString()) }}>{result.no}</button></li>
                                 ))
                             }
                         </ul>
